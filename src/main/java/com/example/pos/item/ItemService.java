@@ -15,7 +15,7 @@ public class ItemService {
     public List<Item> getItems() {return itemRepository.findAll();}
 
     public void addNewItem(Item item) {
-        Optional<Item> studentOptional = itemRepository
+        Optional<Item> itemOptional = itemRepository
                 .findItemByName (item.getName());
         if (itemOptional.isPresent()){
             throw new IllegalStateException("Name taken");

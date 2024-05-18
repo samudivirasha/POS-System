@@ -10,17 +10,18 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    public ItemController (ItemService itemService){
+    public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
 
     @GetMapping
-    public List<Item> getItems () {
+    public List<Item> getItems() {
         return itemService.getItems();
     }
-}
+
 
     @PostMapping
-    public void addAnewItem (@RequestBody Item item) {
+    public void addAnewItem(@RequestBody Item item) {
         itemService.addNewItem(item);
     }
+}
