@@ -4,11 +4,10 @@ import com.example.pos.item.Item;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping (path = "api/v1/category")
-
-
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -19,7 +18,9 @@ public class CategoryController {
     public List<Category> getCategory() {return categoryService.getCategory();}
 
     @PostMapping
-    public void addNewCategory(@RequestBody Category category) {categoryService.addNewCategory();}
+    public Map<String,String> addNewCategory(@RequestBody Category category) {
+       return categoryService.addNewCategory(category);
+    }
 
 
 

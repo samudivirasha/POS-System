@@ -1,9 +1,9 @@
 package com.example.pos.category;
 
-import com.example.pos.item.Item;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -15,12 +15,17 @@ public class CategoryService {
 
     public List<Category> getCategory() {return catRepository.findAll();}
 
-    public void addNewCategory(Category category) {
+    public Map<String,String> addNewCategory(Category category) {
         Optional<Category> categoryOptional = catRepository
-                .findCategoryByName (category.getCat_name());
+                .findByCatName(category.getCatName());
         if (categoryOptional.isPresent()){
-            throw new IllegalStateException("Name taken");
+            return Map.of(
+                    "status", "error",
+                    "message", "Name taken"
+            );
         }
-        catRepository.save(category);
+         catRepository.save(category);
+        return Map.of(
+                "status", "success");
     }
 }

@@ -3,6 +3,7 @@ package com.example.pos.item;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -14,13 +15,22 @@ public class ItemService {
 
     public List<Item> getItems() {return itemRepository.findAll();}
 
-    public void addNewItem(Item item) {
+    public Map<String,String> addNewItem(Item item) {
         Optional<Item> itemOptional = itemRepository
                 .findItemByName (item.getName());
         if (itemOptional.isPresent()){
-            throw new IllegalStateException("Name taken");
+            return Map.of(
+                    "status", "error",
+                    "message", "Name taken"
+            );
+
+
         }
         itemRepository.save(item);
+        return Map.of(
+                "status", "success"
+
+        );
     }
 
     public void deleteItem(Long itemId) {

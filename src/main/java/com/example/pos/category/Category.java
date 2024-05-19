@@ -20,18 +20,27 @@ public class Category {
     )
 
     private Long id;
-    private String cat_name;
-    private String brand;
+    private String catName;
+
     private String cat_description;
 
     public Category(Long id,
-                    String cat_name,
-                    String brand,
+                    String catName,
+
                     String cat_description) {
         this.id = id;
-        this.cat_name = cat_name;
-        this.brand = brand;
+        this.catName = catName;
+
         this.cat_description = cat_description;
+    }
+    public Category(String catName, String cat_description) {
+        this.catName = catName;
+
+        this.cat_description = cat_description;
+    }
+
+    public Category() {
+
     }
 
     public Long getId() {
@@ -42,20 +51,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getCat_name() {
-        return cat_name;
+    public String getCatName() {
+        return catName;
     }
 
-    public void setCat_name(String cat_name) {
-        this.cat_name = cat_name;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setCatName(String cat_name) {
+        this.catName = cat_name;
     }
 
     public String getCat_description() {
@@ -66,9 +67,5 @@ public class Category {
         this.cat_description = cat_description;
     }
 
-    public Category(String cat_name, String brand, String cat_description) {
-        this.cat_name = cat_name;
-        this.brand = brand;
-        this.cat_description = cat_description;
-    }
+
 }
