@@ -22,4 +22,14 @@ public class ItemService {
         }
         itemRepository.save(item);
     }
+
+    public void deleteItem(Long itemId) {
+        boolean exists = itemRepository.existsById(itemId);
+        if (!exists){
+            throw new IllegalStateException("Item with id" + itemId + "does not exist");
+
+        }
+        itemRepository.deleteById(itemId);
+
+    }
 }
