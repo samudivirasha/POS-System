@@ -21,16 +21,13 @@ public class Category {
 
     private Long id;
     private String cat_name;
-    private String brand;
     private String cat_description;
 
     public Category(Long id,
                     String cat_name,
-                    String brand,
                     String cat_description) {
         this.id = id;
         this.cat_name = cat_name;
-        this.brand = brand;
         this.cat_description = cat_description;
     }
 
@@ -50,14 +47,6 @@ public class Category {
         this.cat_name = cat_name;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public String getCat_description() {
         return cat_description;
     }
@@ -66,9 +55,8 @@ public class Category {
         this.cat_description = cat_description;
     }
 
-    public Category(String cat_name, String brand, String cat_description) {
+    public Category(String cat_name, String cat_description) {
         this.cat_name = cat_name;
-        this.brand = brand;
         this.cat_description = cat_description;
     }
 }

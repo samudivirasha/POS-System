@@ -19,6 +19,11 @@ public class ItemController {
         return itemService.getItems();
     }
 
+    @GetMapping(path = "{id}")
+    public Item getItem(@PathVariable("id") Long id){
+        return itemService.getItem(id);
+    }
+
 
     @PostMapping
     public void addAnewItem(@RequestBody Item item) {
