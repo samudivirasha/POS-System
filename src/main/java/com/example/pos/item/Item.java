@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 
 @Entity
 @Table
-
 public class Item {
 
     @Id

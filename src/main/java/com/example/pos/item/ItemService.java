@@ -1,5 +1,6 @@
 package com.example.pos.item;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,4 +43,9 @@ public class ItemService {
         itemRepository.deleteById(itemId);
 
     }
+
+    public void updateItem(Long itemId, String name, String description, String price, String stock) {
+    }
+
+
 }
