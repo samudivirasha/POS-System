@@ -22,19 +22,30 @@ public class Item {
     private Long id;
     private String name;
     private String description;
+
     private double price;
     private int quantity;
 
-    public Item(String name,
-                String description,
-                double price,
-                int quantity) {
+    private int category;
 
+    public Item() {}
 
+    public Item( String name, String description, double price, int quantity, int category) {
+       
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
+        this.category = category;
+    }
+
+    public Item(Long id, String name, String description, double price, int quantity, int category) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.category = category;
     }
 
     public Long getId() {
@@ -83,16 +94,13 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public Item(Long id, String name, String description, double price, int quantity) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.quantity = quantity;
+
+    public int getCategory() {
+        return category;
     }
 
-    public Item() {
-
+    public void setCategory(int category) {
+        this.category = category;
     }
 }
 

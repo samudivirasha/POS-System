@@ -33,15 +33,19 @@ public class ItemController {
     }
 
     //change stock
-    @PutMapping(path = "{itemId}")
-    public void updateItem(
+    @PutMapping(path = "stock/{itemId}")
+    public void updateItemStock(
             @PathVariable("itemId") Long itemId,
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) String description,
-            @RequestParam(required = false) String price,
-            @RequestParam(required = false) String stock
+            @RequestParam(required = false) int stock
     ){
-        itemService.updateItem(itemId, name, description, price, stock);
+        itemService.updateItemStock(itemId, stock);
+    }
+    @PutMapping()
+    public void updateItem(
+
+            @RequestBody Item item
+    ){
+        itemService.updateItem(item);
     }
 }
 
