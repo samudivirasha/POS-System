@@ -31,7 +31,7 @@ public class Item {
     public Item() {}
 
     public Item( String name, String description, double price, int quantity, int category) {
-       
+
         this.name = name;
         this.description = description;
         this.price = price;
