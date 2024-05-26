@@ -31,6 +31,7 @@ public class Category {
         this.id = id;
         this.catName = catName;
 
+
         this.cat_description = cat_description;
     }
     public Category(String catName, String cat_description) {
@@ -51,6 +52,7 @@ public class Category {
         this.id = id;
     }
 
+
     public String getCatName() {
         return catName;
     }
@@ -66,6 +68,5 @@ public class Category {
     public void setCat_description(String cat_description) {
         this.cat_description = cat_description;
     }
-
 
 }

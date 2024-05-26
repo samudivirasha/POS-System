@@ -16,7 +16,23 @@ public class ItemService {
 
     public List<Item> getItems() {return itemRepository.findAll();}
 
+
+
+    public Item getItem(Long itemId){
+        try {
+            Item item = itemRepository.findById(itemId).orElseThrow(() -> new IllegalStateException("Item not found"));
+            if (item != null) {
+                return item;
+            }
+        } catch (Exception e) {
+            throw new IllegalStateException("Failed to get item "+ e.toString());
+        }
+
+        return null;
+    }
+
     public Map<String,String> addNewItem(Item item) {
+
         Optional<Item> itemOptional = itemRepository
                 .findItemByName (item.getName());
         if (itemOptional.isPresent()){

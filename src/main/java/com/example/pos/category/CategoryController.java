@@ -19,9 +19,11 @@ public class CategoryController {
     public List<Category> getCategory() {return categoryService.getCategory();}
 
     @PostMapping
+
     public Map<String,String> addNewCategory(@RequestBody Category category) {
        return categoryService.addNewCategory(category);
     }
+
 
 
 
